@@ -4,10 +4,13 @@ repos:
     hooks:
     - id: black
   - repo: https://github.com/nbQA-dev/nbQA
-    rev: 1.2.3
+    rev: 1.7.0
     hooks:
     - id: nbqa-black
-    - id: nbqa-flake8
+      additional_dependencies: [ipython==8.12, black]
+    - id: nbqa-ruff 
+      args: ["--ignore=I001"]
+      additional_dependencies: [ipython==8.12, ruff]
   - repo: https://github.com/charliermarsh/ruff-pre-commit
     rev: v0.0.292
     hooks:
